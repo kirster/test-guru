@@ -11,6 +11,7 @@ class Test < ApplicationRecord
 
   scope :categorized, -> (category) { where(categories: { title: category} ) }
   scope :descending, -> { order(title: :desc) }
+  scope :levelized, -> (level) { where(level: level) }
 
   validates :title, presence: true, uniqueness: true
   validates :level, numericality: {only_integer: true, greater_than_or_equal_to: 0 },
