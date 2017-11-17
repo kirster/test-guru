@@ -1,0 +1,1 @@
+10.times { User.create!(email: Faker::Internet.email) }
