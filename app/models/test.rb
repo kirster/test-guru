@@ -9,6 +9,10 @@ class Test < ApplicationRecord
   scope :intermediate, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
+  validates :title, presence: true, uniqueness: true
+  validates :level, numericality: {only_integer: true, greater_than_or_equal_to: 0 },
+                    uniqueness: true 
+
   def self.tests_by_category(category)
     Test.joins(:category).where(categories: { title: category }).order(title: :desc)
   end
