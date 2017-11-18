@@ -8,16 +8,15 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :intermediate, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
-
-  scope :categorized, -> (category) { where(categories: { title: category} ) }
+  
+  scope :for_category, -> (category) { joins(:category).where(categories: { title: category} ) }
   scope :descending, -> { order(title: :desc) }
-  scope :levelized, -> (level) { where(level: level) }
+  scope :for_level, -> (level) { where(level: level) }
 
-  validates :title, presence: true, uniqueness: true
-  validates :level, numericality: {only_integer: true, greater_than_or_equal_to: 0 },
-                    uniqueness: true 
+  validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 },
 
   def self.tests_by_category(category)
-    Test.joins(:category).categorized(category).descending
+    self.for_category(category).descending
   end
 end
