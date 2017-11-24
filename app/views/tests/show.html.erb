@@ -1,0 +1,12 @@
+<h1> Test <%= @test.id %> </h1>
+
+  <p> <strong> Title: </strong> <%= @test.title %> <p>
+  <p> <strong> Level: </strong> <%= @test.level %> <p>
+
+  <p> <strong> Questions: </strong> <p>
+
+  <%= render 'questions/question' %>
+
+<p> <%= link_to 'Index', tests_path %> </p>
+<p> <%= link_to 'New',   new_test_path %> </p>
+<p> <%= link_to 'Edit',  edit_test_path(@test) %> </p>
