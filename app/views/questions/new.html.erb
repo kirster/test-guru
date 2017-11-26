@@ -1,5 +1,5 @@
-<h1> Create new <%= question_header(@test) %> question </h1>
+<h1> <%= question_header(@test) %> </h1>
 
 <%= render 'form' %>
 
-<p> <%= link_to 'Index',  test_questions_path(@test) %> </p>
+<p> <%= link_to 'Index',  test_path(@test) %> </p>
