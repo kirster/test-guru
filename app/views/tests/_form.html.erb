@@ -1,0 +1,22 @@
+<%= form_with model: @test, local: true do |form| %>
+  <%= render 'shared/errors', resource: @test %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :test_title %><br>
+  </p>
+
+  <p>
+    <%= form.label :level %><br>
+    <%= form.number_field :level, id: :test_level %><br>
+  </p>
+
+  <p>
+    <%= form.label :category_id %><br>
+    <%= form.collection_select :category_id, Category.all, 
+                                :id, :title, prompt: true %> <br>
+  </p>
+
+  <p> <%= form.submit %> </p>
+
+<% end %>
