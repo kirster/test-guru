@@ -2,6 +2,6 @@
 
 <%= @question.body %>
 
-<p> <%= link_to 'Index',  test_path(@test) %> </p>
-<p> <%= link_to 'New',    new_test_question_path(@test) %> </p>
+<p> <%= link_to 'Index',  test_path(@question.test) %> </p>
+<p> <%= link_to 'New',    new_test_question_path(@question.test) %> </p>
 <p> <%= link_to 'Edit',   edit_question_path(@question) %> </p>
