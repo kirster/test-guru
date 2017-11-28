@@ -12,7 +12,7 @@ answers =[{ body: 'git init', correct: true, question_id: 1 },
 
           { body: 'git commit', question_id: 4}, 
           { body: 'git add', correct: true, question_id: 4 }, 
-          { body: 'git status', question_id: 4},
+          { body: 'git log', question_id: 4},
 
           { body: 'git new branch', question_id: 5 }, 
           { body: 'git branch <name>', correct: true, question_id: 5 },
