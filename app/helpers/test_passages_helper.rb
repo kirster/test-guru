@@ -4,16 +4,25 @@ module TestPassagesHelper
                   test_passage.test.questions.count).round
 
     if ratio >= 85
-      content_tag(:h2, content_tag(:span, "#{ratio}% ", 
-                  id: 'success') + 'Test successfully passed!')
+      content_tag :h2 do
+        concat content_tag :span, "#{ratio}% ", class: 'success'
+        concat 'Test successfully passed!'
+      end
     else
-      content_tag(:h2, content_tag(:span, "#{ratio}% ", 
-                  id: 'fail') + 'Test failed!')
+      content_tag :h2 do
+        concat content_tag :span, "#{ratio}% ", class: 'fail'
+        concat 'Test failed!'
+      end
     end
   end
 
-  def question_index(test_passage)
-    test_passage.test.questions.index(test_passage.current_question) + 1
+  def passing_question_number(test_passage)
+    current_question = test_passage.test.
+                      questions.index(test_passage.current_question) + 1
+
+    questions_amount = test_passage.test.questions.count
+
+    content_tag(:b, "(#{current_question} / #{questions_amount})")
   end
 
 end
