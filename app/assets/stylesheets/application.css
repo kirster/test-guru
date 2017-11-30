@@ -19,3 +19,11 @@
   bottom: 0;
   width: 100%;
 }
+
+.success {
+  color: green;
+}
+
+.fail {
+  color: red;
+}
