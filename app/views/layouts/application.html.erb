@@ -9,7 +9,14 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render 'shared/logged_nav' %>
+    <% else %>
+      <%= render 'shared/general_nav' %>
+    <% end %>
+
     <%= yield %><br>
+
     <%= render 'shared/footer' %>    
   </body>
 </html>

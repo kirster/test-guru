@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!, except: :index
   before_action :find_test, except: [:index, :new, :create]
   before_action :set_user, only: :start 
 
@@ -54,7 +55,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = current_user
   end
 
   def rescue_from_test_not_found

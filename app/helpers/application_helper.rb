@@ -8,4 +8,11 @@ module ApplicationHelper
       yield
     end
   end
+
+  def flash_message(type)
+    if flash[type]
+      content_tag :p, flash[type], id: type, class: 'flash'
+    end
+  end
+
 end
