@@ -2,13 +2,11 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    cookies.permanent[:home_page] = root_path
-
     user = User.find_by(email: params[:email])
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:home_page]
+      redirect_to cookies[:non_session_request]
     else
       flash.now[:alert] = 'Verify your Email and Password'
       render :new
