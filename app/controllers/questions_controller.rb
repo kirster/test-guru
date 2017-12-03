@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test, only: [:index, :create, :new]
   before_action :find_question, except: [:index, :create, :new] 
  

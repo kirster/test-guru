@@ -8,4 +8,12 @@ module ApplicationHelper
       yield
     end
   end
+
+  def flash_message
+    flash.each do |type, message|
+      concat content_tag :p, flash[type], id: type, class: 'flash'
+    end
+    return
+  end
+
 end
