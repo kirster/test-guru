@@ -10,10 +10,8 @@ module ApplicationHelper
   end
 
   def flash_message
-    if flash.any?
-      flash.each do |type, message|
-        concat content_tag :p, flash[type], id: type, class: 'flash'
-      end
+    flash.each do |type, message|
+      concat content_tag :p, flash[type], id: type, class: 'flash'
     end
     return
   end

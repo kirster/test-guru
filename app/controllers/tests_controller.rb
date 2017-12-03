@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :find_test, except: [:index, :new, :create]
-  before_action :set_user, only: :start 
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_test_not_found
 
@@ -53,8 +52,6 @@ class TestsController < ApplicationController
   def find_test
     @test = Test.find(params[:id])
   end
-
-  def set_user; end
 
   def rescue_from_test_not_found
     render plain: 'Test not found'
