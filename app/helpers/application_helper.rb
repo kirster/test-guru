@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def current_year
     Date.current.year
   end
@@ -11,9 +12,9 @@ module ApplicationHelper
 
   def flash_message
     flash.each do |type, message|
-      concat content_tag :p, flash[type], id: type, class: 'flash'
+      concat content_tag :p, message, class: type 
     end
     return
   end
-
+  
 end

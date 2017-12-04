@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <%= render 'shared/logged_nav' %>
     <% else %>
       <%= render 'shared/general_nav' %>
@@ -17,7 +17,7 @@
 
     <%= flash_message %>
 
-    <%= yield %><br>
+    <%= yield %>
 
     <%= render 'shared/footer' %>    
   </body>
