@@ -1,10 +1,8 @@
 class Test < ApplicationRecord
 
-  before_validation :before_validation_set_author, on: :create
-
   has_many :test_passages
   has_many :users, through: :test_passages
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
   belongs_to :category
   has_many :questions
 
@@ -21,16 +19,6 @@ class Test < ApplicationRecord
 
   def self.tests_by_category(category)
     self.for_category(category).descending
-  end
-
-  def set_author(current_user)
-    @current_user = current_user
-  end
-
-  private
-
-  def before_validation_set_author
-    self.author = @current_user
   end
 
 end

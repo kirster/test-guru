@@ -3,8 +3,6 @@ class TestsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test, only: :start
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_test_not_found
-
   def index
     @tests = Test.all
   end
@@ -18,10 +16,6 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-  end
-
-  def rescue_from_test_not_found
-    render plain: 'Test not found'
   end
 
 end

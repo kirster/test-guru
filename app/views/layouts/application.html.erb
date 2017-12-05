@@ -9,11 +9,7 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= render 'shared/logged_nav' %>
-    <% else %>
-      <%= render 'shared/general_nav' %>
-    <% end %>
+    <%= render 'shared/header_navigation' %>
 
     <%= flash_message %>
 
