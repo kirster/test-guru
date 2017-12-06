@@ -1,10 +1,10 @@
 <%= content_tag :p, class: 'nav user' do
   concat 'Welcome, '
-  concat content_tag :b, current_user.user_name
+  concat content_tag :b, current_user.first_name
   concat ' Guru.'
 end %>
 
 <%= content_tag :p, class: 'nav user' do
   concat link_to 'Test Guru  ',   root_path
-  concat link_to 'Logout',        logout_path
+  concat link_to 'Logout',        destroy_user_session_path, method: :delete
 end %>

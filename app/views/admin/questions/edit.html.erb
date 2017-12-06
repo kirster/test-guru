@@ -1,0 +1,7 @@
+<h1> <%= question_header(@question.test) %> </h1>
+
+<%= render 'form' %>
+
+<p> <%= link_to 'Index',  admin_tests_path(@question.test) %> </p>
+<p> <%= link_to 'New',    new_admin_test_path(@question.test) %> </p>
+<p> <%= link_to 'Show',   admin_question_path(@question) %> </p>

@@ -1,7 +1,8 @@
 class Test < ApplicationRecord
+
   has_many :test_passages
   has_many :users, through: :test_passages
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
   belongs_to :category
   has_many :questions
 
@@ -19,4 +20,5 @@ class Test < ApplicationRecord
   def self.tests_by_category(category)
     self.for_category(category).descending
   end
+
 end
