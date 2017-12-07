@@ -1,0 +1,71 @@
+en:
+
+  users:
+    sessions:
+      create:
+        notice: "Hello, %{full_name}"
+
+  devise:
+
+    shared:
+      links:     
+        login: "Log In"
+        signup: "Sign Up"
+        forget_password: "Forget password?"
+        confirm: "Don`t get confirmation?"
+        unlock: "Don`t get instructions for unlocking?"
+        provider: "Log In with %{provider}"
+
+    confirmations:
+      new:
+        header: "Send again"
+        submit: "Send"
+
+    mailer:
+      confirmation_instructions:
+        greeting: "Hello, %{email} !"
+        instruction: "You can activate your account with link below:"
+        action: "Activate"
+
+      email_changed:
+        greeting: "Hello, %{email} !"
+        changed: "Email was changed on %{email}"
+        already_changed: "Email was changed on %{email}"
+
+      password_chaged:
+        greeting: "Hello, %{email} !"
+        message: "We are trying to contact you to tell you that your password was changed."
+
+      reset_password_instructions:
+        greeting: "Hello, %{email} !"
+        action: "Change password"
+        instruction_1: "You requested password change. To change, click link below:"
+        instruction_2: "If you haven`t requested password change, ignore this message"
+        instruction_3: "Your password is not gonna be changed until you click link and enter new password"
+
+      unlock_instructions:
+        greeting: "Hello, %{email} !"
+        action: "Разблокировать учетную запись"
+        warning: "Ваша учетная запись была заблокирована в связи с превышением лимита неудачных попыток входа."
+        message: "Нажмите ссылку для активации учетной записи:"
+
+    registrations:
+      new:
+        header: "Sign Up"
+        action: "Register"   
+      edit:
+        header: "Edit %{resource}"
+        confirmation: "Waiting for confirmation of : %{email}"
+        blank_field: "leave blank, if changes are not required"
+        min_characters: "(At least %{number} symbols)"
+        message: "Need current password for changes confirmation"
+        action: "Update"
+        cancel: "Cancel account"
+        unhappy: "Unhappy?"
+        confirm: "Are you sure?"
+        back: "Back"
+
+    sessions:
+      new:
+        header: "Log In"
+        action: "Log In"

@@ -1,12 +1,12 @@
-<h1> Test <%= @test.id %> </h1>
+<h1> <%= t('.header', number: @test.id)%> </h1>
 
-  <p> <strong> Title: </strong> <%= @test.title %> <p>
-  <p> <strong> Level: </strong> <%= @test.level %> <p>
+  <p> <strong> <%= t('.title', title: @test.title) %> </strong> </p>
+  <p> <strong> <%= t('.level', level: @test.level) %> </strong> </p>
 
-  <p> <strong> Questions: </strong> <p>
+  <p> <strong> <%= t('.questions') %> </strong> </p>
 
   <%= render 'admin/questions/question' %>
 
-<p> <%= link_to 'Index', admin_tests_path %> </p>
-<p> <%= link_to 'New',   new_admin_test_path %> </p>
-<p> <%= link_to 'Edit',  edit_admin_test_path(@test) %> </p>
+<p> <%= link_to t('.index_link'), admin_tests_path %> </p>
+<p> <%= link_to t('.new_link'),  new_admin_test_path %> </p>
+<p> <%= link_to t('.edit_link'), edit_admin_test_path(@test) %> </p>

@@ -1,0 +1,22 @@
+ru:
+  activerecord: 
+    models:
+      test: "Тест"
+      user: "Пользователь"
+
+    attributes:
+      test:
+        title: "Название"
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        current_password: "Текущий пароль"
+        email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить меня"
+        reset_password_token: "Ссылка сброса пароля"
+
+    errors:
+      messages: 
+        blank: "не может быть пустым"
