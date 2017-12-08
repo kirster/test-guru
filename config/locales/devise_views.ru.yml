@@ -1,0 +1,71 @@
+ru:
+
+  users:
+    sessions:
+      create:
+        notice: "Привет, %{full_name}"
+
+  devise:
+
+    shared:
+      links:     
+        login: "Войти"
+        signup: "Регистрация"
+        forget_password: "Забыли пароль?"
+        confirm: "Не получили письмо с подтверждением?"
+        unlock: "Не получили инструкции по разблокировке?"
+        provider: "Войти с помощью %{provider}"
+
+    confirmations:
+      new:
+        header: "Прислать письмо заново"
+        submit: "Прислать заново"
+
+    mailer:
+      confirmation_instructions:
+        greeting: "Привет, %{email} !"
+        instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
+        action: "Активировать"
+
+      email_changed:
+        greeting: "Привет, %{email} !"
+        changed: "Email изменен на %{email}"
+        already_changed: "Email был изменен на %{email}"
+
+      password_chaged:
+        greeting: "Привет, %{email} !"
+        message: "Мы пытаемся связаться с вами, что бы сообщить, что ваш пароль был изменен."
+
+      reset_password_instructions:
+        greeting: "Привет, %{email} !"
+        action: "Изменить пароль"
+        instruction_1: "Вы запросили изменение пароля. Для изменения пароля нажмите ссылку ниже:"
+        instruction_2: "Если вы не запрашивали изменение пароля - проигнорируйте это сообщение"
+        instruction_3: "Ваш пароль не изменится пока вы не нажмете на ссылку и не введете новый."
+
+      unlock_instructions:
+        greeting: "Привет, %{email} !"
+        action: "Разблокировать учетную запись"
+        warning: "Ваша учетная запись была заблокирована в связи с превышением лимита неудачных попыток входа."
+        message: "Нажмите ссылку для активации учетной записи:"
+
+    registrations:
+      new:
+        header: "Регистрация"
+        action: "Зарегистрироваться"   
+      edit:
+        header: "Редактировать %{resource}"
+        confirmation: "Ожидается подтверждение адреса: %{email}"
+        blank_field: "оставьте поле пустым, если не хотите его менять"
+        min_characters: "(Минимум %{number} символов)"
+        message: "Нужен Ваш текущий пароль для подтверждения изменений"
+        action: "Обновить"
+        cancel: "Удалить учетную запись"
+        unhappy: "Разочарованы?"
+        confirm: "Уверены?"
+        back: "Назад"
+
+    sessions:
+      new:
+        header: "Вход в учетную запись"
+        action: "Войти"

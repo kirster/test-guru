@@ -1,5 +1,5 @@
-<h1> Create a new Test </h1>
+<h1> <%= t('.header') %> </h1>
 
 <%= render 'form' %>
 
-<p> <%= link_to 'Index', admin_tests_path %> </p>
+<p> <%= link_to t('.index_link'),  admin_tests_path %> </p>
