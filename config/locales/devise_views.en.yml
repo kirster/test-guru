@@ -69,3 +69,4 @@ en:
       new:
         header: "Log In"
         action: "Log In"
+        remember_me: "Remember me"

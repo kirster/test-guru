@@ -1,5 +1,11 @@
-<% if user_signed_in? %>
-  <%= render 'shared/logged_nav' %>
-<% else %>
-  <%= render 'shared/general_nav' %>
-<% end %>
+<nav class="navbar navbar-light bd-light">
+
+  <%= link_to 'Test Guru', root_path, class: "navbar-brand" %>
+
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_nav' %>
+  <% else %>
+    <%= render 'shared/general_nav' %>
+  <% end %>    
+
+</nav>
