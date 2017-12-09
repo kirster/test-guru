@@ -1,4 +1,7 @@
 ru:
+
+  admin_panel: "Панель Админа"
+        
   tests:
     index:
       header: "Доступные Тесты"

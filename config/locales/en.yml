@@ -1,4 +1,7 @@
 en:
+
+  admin_panel: "Admin Panel"
+
   tests:
     index:
       header: "All Tests"

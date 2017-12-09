@@ -1,10 +1,19 @@
-<%= content_tag :p, class: 'nav user' do
-  concat 'Welcome, '
-  concat content_tag :b, current_user.first_name
-  concat ' Guru.'
-end %>
+<% unless current_user.admin? %>
+  <%= content_tag :span do
+    concat link_to t('admin_panel'), admin_tests_path, class: "btn btn-primary" 
+  end %>
+<% end %>
 
-<%= content_tag :p, class: 'nav user' do
-  concat link_to 'Test Guru  ',   root_path
-  concat link_to 'Logout',        destroy_user_session_path, method: :delete
-end %>
+<span class="navbar-text">
+
+  <%= content_tag :span do
+    concat 'Welcome, '
+    concat content_tag :b, current_user.first_name
+    concat ' Guru '
+  end %>
+
+  <%= content_tag :p do
+    concat link_to 'Logout', destroy_user_session_path, method: :delete
+  end %>
+
+</span>

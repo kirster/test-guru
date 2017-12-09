@@ -1,14 +1,24 @@
-<h1> <%= t('.header') %> </h1>
+<div class="row mt-2">
 
-<table>
+  <div class="col-md-12 text-center">
+    <h1> <%= t('.header') %> </h1>
+  </div>
 
-  <tr>
-    <td> <%= t('.title') %> </td>
-    <td> <%= t('.level') %> </td>
-    <td> <%= t('.questions') %> </td>
-    <td> <%= t('.actions') %> </td>
-  </tr>
+  <table class="table mt-3">
 
-  <%= render @tests %>
+    <thead class="thead-dark">
 
-</table>
+      <tr class="text-center">
+        <th scope="col"> <%= t('.title') %> </th>
+        <th scope="col"> <%= t('.level') %> </th>
+        <th scope="col"> <%= t('.questions') %> </th>
+        <th scope="col"> <%= t('.actions') %> </th>
+      </tr>
+      
+     </thead>
+
+    <%= render @tests %>
+
+  </table>
+
+</div>
