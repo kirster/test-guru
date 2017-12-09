@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+  BOOTSTRAP_FLASH_CLASS = { 'notice' => 'alert alert-info', 'alert' => 'alert alert-danger' }
+
   def current_year
     Date.current.year
   end
@@ -12,23 +14,8 @@ module ApplicationHelper
 
   def flash_message
     flash.map do |type, message|
-      content_tag :div, message, class: "#{bootstrap_flash_class(type)}" 
+      content_tag :div, message, class: "#{BOOTSTRAP_FLASH_CLASS[type]}" 
     end.join.html_safe
-  end
-
-  def bootstrap_flash_class(type)
-    case type
-      when 'notice' then 'alert alert-info'
-      when 'alert' then 'alert alert-danger'   
-    end
-  end
-
-  def link_to_admin_panel(current_user)
-    if current_user.admin?
-      content_tag :span do
-        concat link_to t('admin_panel'), admin_tests_path, class: "btn btn-primary" 
-      end
-    end
   end
 
 end
