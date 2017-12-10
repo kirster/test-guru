@@ -1,0 +1,23 @@
+<div class="row mt-2">
+
+  <div class="col-md-12 text-center">
+    <h1> <%= t('.header') %> </h1>
+  </div>
+
+  <table class="table mt-3">
+
+    <thead class="thead-dark">
+
+      <tr class="text-center">
+        <th scope="col"> <%= t('.question') %> </th>
+        <th scope="col"> <%= 'Gist url' %> </th>
+        <th scope="col"> <%= 'Email' %> </th>
+      </tr>
+      
+     </thead>
+
+    <%= render @gists %>
+
+  </table>
+
+</div>

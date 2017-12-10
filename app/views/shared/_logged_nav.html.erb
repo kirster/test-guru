@@ -1,4 +1,4 @@
-<% unless current_user.admin? %>
+<% if current_user.admin? %>
   <%= content_tag :span do
     concat link_to t('admin_panel'), admin_tests_path, class: "btn btn-primary" 
   end %>

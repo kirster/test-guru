@@ -1,6 +1,9 @@
 ru:
 
   admin_panel: "Панель Админа"
+
+  gist_description: "Вопрос из теста %{title}. Приложение TestGuru"
+  gist_file: "тест-гуру-вопрос.txt"
         
   tests:
     index:
@@ -13,6 +16,10 @@ ru:
       start: "Начать Тест"
 
   admin:
+    gists:
+      index:
+        header: "Gist Пользователей"
+        question: "Вопрос"
     nav:
       header: "Панель Админа Test Guru "
       greeting: "Добро пожаловать"
@@ -53,6 +60,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершен"
+    gist:
+      success: "Сcылка на созданный Gist!"
+      failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
     completed_test:

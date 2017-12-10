@@ -14,7 +14,7 @@ module ApplicationHelper
 
   def flash_message
     flash.map do |type, message|
-      content_tag :div, message, class: "#{BOOTSTRAP_FLASH_CLASS[type]}" 
+      content_tag :div, raw(message), class: "#{BOOTSTRAP_FLASH_CLASS[type]}" 
     end.join.html_safe
   end
 

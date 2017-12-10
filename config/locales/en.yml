@@ -2,6 +2,9 @@ en:
 
   admin_panel: "Admin Panel"
 
+  gist_description: "A question from %{title} from TestGuru"
+  gist_file: "test-guru-question.txt"
+
   tests:
     index:
       header: "All Tests"
@@ -13,6 +16,10 @@ en:
       start: "Start Test"
 
   admin:
+    gists:
+      index:
+        header: "Users Gists"
+        question: "Question"
     nav:
       header: "Test Guru Admin Panel"
       greeting: "Welcome"
@@ -53,6 +60,9 @@ en:
   test_passages:
     result:
       header: "Test %{title} successfully passed"
+    gist:
+      success: "Link to created Gist"
+      failure: "Error occured while saving gist"
 
   tests_mailer:
     completed_test:
