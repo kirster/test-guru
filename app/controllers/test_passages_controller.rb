@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-  
+
   before_action :authenticate_user!
   before_action :find_test_passage, only: [:show, :update, :result, :gist]
 
@@ -21,15 +21,14 @@ class TestPassagesController < ApplicationController
   def gist
     question = @test_passage.current_question
 
-    response = GistQuestionService.new(question).call
+    service = GistQuestionService.new(question)
+    response = service.call
 
-    flash_options = if response
+    flash_options = if service.successful_response?
 
-      create_gist(question, response[:url])
+      current_user.gists.create!(gist_url: response[:url], question_id: question.id)
 
-      notice_message = "#{view_context.link_to(t('.success'), 
-                            response[:html_url], target: "_blank") }" 
-      { notice: notice_message }
+      { notice: t('.success', link: response[:html_url]) }
     else
       { alert: t('.failure') }
     end
@@ -42,13 +41,5 @@ class TestPassagesController < ApplicationController
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])    
   end
-  
-  def create_gist(question, url)
-    current_user.questions.push(question)
-    gist = current_user.gists.last
-    gist.gist_url = url
-    gist.save
-  end
 
 end
-

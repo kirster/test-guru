@@ -61,7 +61,7 @@ en:
     result:
       header: "Test %{title} successfully passed"
     gist:
-      success: "Link to created Gist"
+      success: "<a href=%{link} target='_blank'> Link to created Gist </a>"
       failure: "Error occured while saving gist"
 
   tests_mailer:

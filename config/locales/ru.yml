@@ -61,7 +61,7 @@ ru:
     result:
       header: "Тест %{title} успешно завершен"
     gist:
-      success: "Сcылка на созданный Gist!"
+      success: "<a href=%{link} target='_blank'> Ccылка на созданный Gist! </a>"
       failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
