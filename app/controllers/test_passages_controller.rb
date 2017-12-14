@@ -26,7 +26,7 @@ class TestPassagesController < ApplicationController
 
     flash_options = if service.successful_response?
 
-      current_user.gists.create!(gist_url: response[:url], question_id: question.id)
+      current_user.gists.create!(gist_url: response[:url], question: question)
 
       { notice: t('.success', link: response[:html_url]) }
     else
