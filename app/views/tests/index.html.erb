@@ -9,7 +9,11 @@
     <thead class="thead-dark">
 
       <tr class="text-center">
-        <th scope="col"> <%= t('.title') %> </th>
+        <th scope="col" class="sort-by-title"> 
+          <%= t('.title') %>
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>   
+        </th>
         <th scope="col"> <%= t('.level') %> </th>
         <th scope="col"> <%= t('.questions') %> </th>
         <th scope="col"> <%= t('.actions') %> </th>
