@@ -25,6 +25,8 @@ en:
       greeting: "Welcome"
       logout: "Log Out"
     tests:
+      form_inline:
+        submit: "OK"
       index:
         header: "All Tests"
         new_link: "New Test"
@@ -50,7 +52,6 @@ en:
         index_link: "All Tests"
         new_link: "New Test"
         edit_link: "Edit"
-
       test:
         show_link: "Show"
         edit_link: "Edit"

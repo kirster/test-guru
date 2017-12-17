@@ -25,6 +25,8 @@ ru:
       greeting: "Добро пожаловать"
       logout: "Выход"
     tests:
+      form_inline:
+        submit: "OK"
       index:
         header: "Доступные Тесты"
         new_link: "Новый Тест"
@@ -50,7 +52,6 @@ ru:
         index_link: "Все Тесты"
         new_link: "Новый Тест"
         edit_link: "Редактировать"
-
       test:
         show_link: "Показать"
         edit_link: "Редактировать"
