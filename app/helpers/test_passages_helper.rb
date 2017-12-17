@@ -17,12 +17,15 @@ module TestPassagesHelper
   end
 
   def passing_question_number(test_passage)
-    current_question = test_passage.test.
-                      questions.index(test_passage.current_question) + 1
+    content_tag(:b, "(#{current_question(test_passage)} / #{questions_amount(test_passage)})")
+  end
 
-    questions_amount = test_passage.test.questions.count
+  def questions_amount(test_passage)
+    test_passage.test.questions.count
+  end
 
-    content_tag(:b, "(#{current_question} / #{questions_amount})")
+  def current_question(test_passage)
+    test_passage.test.questions.index(test_passage.current_question) + 1
   end
 
 end
