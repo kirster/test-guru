@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
   var progress = document.querySelector('.progress-bar')
-  if (progress) { window.onload = calculateProgress(progress) }
+  if (progress) { document.addEventListener("DOMContentLoaded", calculateProgress(progress)) }
 })
 
 function calculateProgress(progress) {

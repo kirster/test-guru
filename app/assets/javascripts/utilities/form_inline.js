@@ -1,10 +1,12 @@
 document.addEventListener('turbolinks:load', function() {
-  $controls = $('.form-inline-link')
-  $controls.on('click', formInlineLinkHandler)
+
+  $('.form-inline-link').on('click', formInlineLinkHandler)
 
   var errors = document.querySelector('.resource-errors')
 
-  if (errors && $controls.length) {
+  var form = document.querySelector('.form-inline')
+
+  if (errors && form) {
     var resourceId = errors.dataset.resourceId
     formInlineHandler(resourceId)
   }
