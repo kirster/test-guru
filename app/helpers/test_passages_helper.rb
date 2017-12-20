@@ -21,7 +21,8 @@ module TestPassagesHelper
   end
 
   def questions_amount(test_passage)
-    test_passage.test.questions.count
+    test_id = "test_#{test_passage.test.id}"
+    session[test_id.to_sym] ||= test_passage.test.questions.count
   end
 
   def current_question(test_passage)
