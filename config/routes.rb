@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedback_messages, only: [:new, :create]
+
   namespace :admin do
 
     resources :gists, shallow: true, only: :index
