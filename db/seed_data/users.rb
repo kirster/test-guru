@@ -1,1 +1,1 @@
-10.times { User.create!(email: Faker::Internet.email, full_name: Faker::Name.name) }
+#10.times { User.create!(email: Faker::Internet.email, full_name: Faker::Name.name) }
