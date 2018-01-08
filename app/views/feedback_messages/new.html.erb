@@ -9,8 +9,6 @@
     <%= form.text_area :body, id: :message_body %><br>
   </p>
 
-  <p> <%= form.hidden_field :user_id, value: current_user.id %> </p> 
-
   <p> <%= form.submit 'Send', class: "btn btn-large btn-primary" %> </p>
 
 <% end %>

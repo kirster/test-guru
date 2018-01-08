@@ -7,11 +7,11 @@ class FeedbackMessagesController < ApplicationController
   end
 
   def create
-    @feedback_message = FeedbackMessage.new(message_params)
+    @feedback_message = current_user.feedback_messages.new(message_params)
 
     if @feedback_message.save
       FeedbackMailer.user_message(@feedback_message).deliver_now
-      redirect_to :root
+      redirect_to :root, notice: 'Message was sent.Thanks for your feedback'
     else
       render :new
     end
@@ -20,7 +20,7 @@ class FeedbackMessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:feedback_message).permit(:body, :user_id)
+    params.require(:feedback_message).permit(:body)
   end
 
 end

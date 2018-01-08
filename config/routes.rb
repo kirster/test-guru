@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :feedback_messages, only: [:new, :create]
+  resources :feedback_messages, only: :create
+  get 'feedback', to: "feedback_messages#new"
 
   namespace :admin do
 
