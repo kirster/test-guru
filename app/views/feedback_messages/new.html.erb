@@ -1,0 +1,14 @@
+<h1> Contact us through form below </h1>
+
+<%= form_with model: @feedback_message, local: true do |form| %>
+
+  <%= render 'shared/errors', resource: @feedback_message %>
+
+  <p>
+    <%= form.label :message %><br>
+    <%= form.text_area :body, id: :message_body %><br>
+  </p>
+
+  <p> <%= form.submit 'Send', class: "btn btn-large btn-primary" %> </p>
+
+<% end %>

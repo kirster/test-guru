@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedback_messages, only: :create
+  get 'feedback', to: "feedback_messages#new"
+
   namespace :admin do
 
     resources :gists, shallow: true, only: :index
