@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def before_update_set_next_question
-    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first 
+    self.current_question = test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def correct_answer?(answer_ids)

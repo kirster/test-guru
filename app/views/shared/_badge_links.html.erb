@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+
+  <p> <%= link_to 'All Badges', badges_path %> </p>
+
+  <p> <%= link_to 'My Badges', user_badges_path(current_user) %> </p> 
+     
+<% end %>    
