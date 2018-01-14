@@ -1,0 +1,21 @@
+<tr>
+  <td class="align-middle"> <%= badge.title %> </td>
+
+  <td class="align-middle"> <%= badge.file_name %> </td>
+
+  <td class="align-middle"> <%= badge.rule_name %> </td>
+
+  <td class="align-middle"> <%= badge.rule_value %> </td>
+
+  <% if current_user.admin? %>
+
+    <td class="align-middle"> <%= link_to 'Show',   admin_badge_path(badge) %> </td>
+    <td class="align-middle"> <%= link_to 'Edit',   edit_admin_badge_path(badge) %> </td>
+    <td class="align-middle"> <%= link_to 'Delete', admin_badge_path(badge), 
+                                                    method: :delete,
+                                                    data: { confirm: t('.warning') } %> 
+    </td>
+
+  <% end %>
+  
+</tr>

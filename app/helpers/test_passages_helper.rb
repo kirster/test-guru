@@ -1,7 +1,7 @@
 module TestPassagesHelper
   def result_output(test_passage)
-    ratio = 100 * (test_passage.correct_questions.to_f / 
-                  test_passage.test.questions.count).round
+
+    ratio = ratio(test_passage)
 
     if ratio >= 85
       content_tag :h2 do
@@ -27,6 +27,10 @@ module TestPassagesHelper
 
   def current_question(test_passage)
     test_passage.test.questions.index(test_passage.current_question) + 1
+  end
+
+  def ratio(test_passage)
+    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count).round
   end
 
 end

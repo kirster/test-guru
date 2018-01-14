@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180108062749) do
+ActiveRecord::Schema.define(version: 20180111131017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 20180108062749) do
     t.integer "question_id"
     t.index ["correct"], name: "index_answers_on_correct"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title"
+    t.string "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "rule_name"
+    t.string "rule_value"
+    t.index ["title"], name: "index_badges_on_title"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.index ["badge_id", "user_id"], name: "index_badges_users_on_badge_id_and_user_id"
+    t.index ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -66,8 +83,10 @@ ActiveRecord::Schema.define(version: 20180108062749) do
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "success", default: false
     t.index ["created_at"], name: "index_test_passages_on_created_at"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["success"], name: "index_test_passages_on_success"
     t.index ["user_id", "test_id"], name: "index_test_passages_on_user_id_and_test_id"
   end
 

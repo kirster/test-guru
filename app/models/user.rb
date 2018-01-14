@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :authored_tests, class_name: 'Test'
   has_many :gists
   has_many :feedback_messages
+  has_and_belongs_to_many :badges
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)  
@@ -29,6 +30,4 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
   
-    
-
 end
