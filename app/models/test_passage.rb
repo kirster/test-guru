@@ -17,6 +17,12 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def success!(ratio, user)
+    update_column(:success, true) if ratio >= 85
+
+    BadgeCriteriaCheck.check_criterias(user) if self.success
+  end
+
   private
 
   def before_validation_set_first_question
