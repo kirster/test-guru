@@ -7,6 +7,8 @@
   <%= passing_question_number(@test_passage) %>
 </p>
 
+<p> <%= render 'shared/timer' %> </p>
+
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, 
                                                                                     :id, :body, include_hidden: false do |b|%>

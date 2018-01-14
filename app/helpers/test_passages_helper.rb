@@ -30,7 +30,12 @@ module TestPassagesHelper
   end
 
   def ratio(test_passage)
-    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count).round
+    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count)
+  end
+
+  def passage_end_time(test_passage)
+    passage_id = "passage_#{test_passage.id}"
+    session[passage_id.to_sym] ||= Time.now + test_passage.test.timer.minutes
   end
 
 end
