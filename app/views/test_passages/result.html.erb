@@ -1,13 +1,5 @@
 <h1> <%= t('.header', title: @test_passage.test.title) %> </h1>
- 
-<% if @test_passage.completed? %>
 
-  <%= result_output(@test_passage) %>
-
-<% else %>
-
-  <h1 class='fail'> Test failed. Your time is out </h1>
-
-<% end %>
+<%= result_output(@test_passage) %>
 
 <%= link_to 'All Tests', root_path %>

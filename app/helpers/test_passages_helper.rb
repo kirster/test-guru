@@ -3,16 +3,21 @@ module TestPassagesHelper
 
     ratio = ratio(test_passage)
 
-    if ratio >= 85
-      content_tag :h2 do
-        concat content_tag :span, "#{ratio}% ", class: 'success'
-        concat 'Test successfully passed!'
+    if test_passage.completed?
+      case ratio
+      when 0..84
+        content_tag :h2 do
+          concat content_tag :span, "#{ratio}% ", class: 'fail'
+          concat 'Test failed!'
+        end
+      else
+        content_tag :h2 do
+          concat content_tag :span, "#{ratio}% ", class: 'success'
+          concat 'Test successfully passed!'
+        end
       end
     else
-      content_tag :h2 do
-        concat content_tag :span, "#{ratio}% ", class: 'fail'
-        concat 'Test failed!'
-      end
+      content_tag :h1, "Test failed. Your time is out", class: 'fail'
     end
   end
 
