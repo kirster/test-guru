@@ -46,8 +46,9 @@ class TestPassagesController < ApplicationController
   end
 
   def check_timer
-    if Time.now >= session["passage_#{@test_passage.id}".to_sym]
-      redirect_to result_test_passage_path(@test_passage)
+    if @test_passage.test.timer
+      redirect_to result_test_passage_path(@test_passage) if 
+                  Time.current >= session["passage_#{@test_passage.id}"]
     end
   end
 

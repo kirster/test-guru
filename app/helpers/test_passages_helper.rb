@@ -22,12 +22,7 @@ module TestPassagesHelper
   end
 
   def passing_question_number(test_passage)
-    content_tag(:b, "(#{current_question(test_passage)} / #{questions_amount(test_passage)})")
-  end
-
-  def questions_amount(test_passage)
-    test_id = "test_#{test_passage.test.id}"
-    session[test_id.to_sym] ||= test_passage.test.questions.count
+    content_tag(:b, "(#{current_question(test_passage)} / #{session["test_#{test_passage.test.id}"]})")
   end
 
   def current_question(test_passage)
@@ -36,11 +31,6 @@ module TestPassagesHelper
 
   def ratio(test_passage)
     100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count)
-  end
-
-  def passage_end_time(test_passage)
-    passage_id = "passage_#{test_passage.id}"
-    session[passage_id.to_sym] ||= Time.now + test_passage.test.timer.minutes
   end
 
 end

@@ -10,6 +10,11 @@ class TestsController < ApplicationController
   def start
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
+
+    session["test_#{@test.id}"] ||= @test.questions.count
+    if @test.timer
+      session["passage_#{current_user.test_passages.last.id}"] = @test.timer.minutes.from_now
+    end
   end
 
   private

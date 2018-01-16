@@ -1,4 +1,4 @@
-<div class="timer" data-end-time= "<%= passage_end_time(@test_passage) %>"
+<div class="timer" data-end-time= "<%= session["passage_#{@test_passage.id}"] %>"
                    data-passage-id = "<%= @test_passage.id %>" >
 
   <span class="minutes"></span>  
