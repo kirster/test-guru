@@ -46,9 +46,8 @@ class TestPassagesController < ApplicationController
   end
 
   def check_timer
-    if @test_passage.test.timer
-      redirect_to result_test_passage_path(@test_passage) if 
-                  Time.current >= session["passage_#{@test_passage.id}"]
+    if @test_passage.test.timer && @test_passage.stale?(session["passage_#{@test_passage.id}"])
+      redirect_to result_test_passage_path(@test_passage)
     end
   end
 

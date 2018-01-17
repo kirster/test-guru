@@ -13,7 +13,7 @@ class TestsController < ApplicationController
 
     session["test_#{@test.id}"] ||= @test.questions.count
     if @test.timer
-      session["passage_#{current_user.test_passages.last.id}"] = @test.timer.minutes.from_now
+      session["passage_#{current_user.test_passage(@test).id}"] = @test.timer.minutes.from_now
     end
   end
 
