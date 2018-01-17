@@ -1,4 +1,4 @@
 <progress max="100" value="0" class="progress-bar" 
-          data-questions="<%= questions_amount(@test_passage) %>"
+          data-questions="<%= Rails.cache.read("test_#{@test_passage.test.id}") %>"
           data-question-index="<%= current_question(@test_passage) %>">
 </progress>

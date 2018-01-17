@@ -3,26 +3,27 @@ module TestPassagesHelper
 
     ratio = ratio(test_passage)
 
-    if ratio >= 85
-      content_tag :h2 do
-        concat content_tag :span, "#{ratio}% ", class: 'success'
-        concat 'Test successfully passed!'
+    if test_passage.completed?
+      case ratio
+      when 0..84
+        content_tag :h2 do
+          concat content_tag :span, "#{ratio}% ", class: 'fail'
+          concat 'Test failed!'
+        end
+      else
+        content_tag :h2 do
+          concat content_tag :span, "#{ratio}% ", class: 'success'
+          concat 'Test successfully passed!'
+        end
       end
     else
-      content_tag :h2 do
-        concat content_tag :span, "#{ratio}% ", class: 'fail'
-        concat 'Test failed!'
-      end
+      content_tag :h1, "Test failed. Your time is out", class: 'fail'
     end
   end
 
   def passing_question_number(test_passage)
-    content_tag(:b, "(#{current_question(test_passage)} / #{questions_amount(test_passage)})")
-  end
-
-  def questions_amount(test_passage)
-    test_id = "test_#{test_passage.test.id}"
-    session[test_id.to_sym] ||= test_passage.test.questions.count
+    questions_amount = Rails.cache.read("test_#{test_passage.test.id}")
+    content_tag(:b, "(#{current_question(test_passage)} / #{questions_amount})")
   end
 
   def current_question(test_passage)
@@ -30,7 +31,7 @@ module TestPassagesHelper
   end
 
   def ratio(test_passage)
-    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count).round
+    100 * (test_passage.correct_questions.to_f / test_passage.test.questions.count)
   end
 
 end

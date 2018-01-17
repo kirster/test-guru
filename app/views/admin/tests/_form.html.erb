@@ -17,6 +17,11 @@
                                 :id, :title, prompt: true %> <br>
   </p>
 
+  <p>
+    <%= form.label :timer_in_minutes %><br>
+    <%= form.text_field :timer, id: :test_timer %><br>
+  </p>
+
   <p> <%= form.submit %> </p>
 
 <% end %>

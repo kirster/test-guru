@@ -33,7 +33,8 @@ ru:
         title: "Название"
         level: "Уровень"
         questions: "Кол-во вопросов"
-        actions: "Действие"   
+        actions: "Действие"
+        timer: 'Время на прохождение(в минутах)'   
       create:
         success: "Тест успешно создан"
       edit:
@@ -80,6 +81,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        timer_in_minutes: "Время в минутах"
 
     select:
       prompt: "Выберите категорию"
