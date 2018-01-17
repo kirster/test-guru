@@ -22,7 +22,8 @@ module TestPassagesHelper
   end
 
   def passing_question_number(test_passage)
-    content_tag(:b, "(#{current_question(test_passage)} / #{session["test_#{test_passage.test.id}"]})")
+    questions_amount = Rails.cache.read("test_#{test_passage.test.id}")
+    content_tag(:b, "(#{current_question(test_passage)} / #{questions_amount})")
   end
 
   def current_question(test_passage)

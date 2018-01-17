@@ -22,4 +22,8 @@ class Test < ApplicationRecord
     self.for_category(category).descending
   end
 
+  def questions_amount
+    Rails.cache.write("test_#{self.id}", self.questions.count)
+  end
+
 end
